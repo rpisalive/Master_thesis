@@ -189,10 +189,11 @@ mod.view_anndata_setup()
 # In[33]:
 
 
-#for regression model training, please remove the # from the mod.train line and mute the 2nd line, it is suggested to submit the script to slurm job for training
+#mod.train is for model traning, the trained model can be loaded with cell2location.models.RegressionModel.load
+#Please refer to cell2location_run.sh for slrum job submission
 #The regression modle can be reused for cell2location training as long as they share the same reference data.
-#mod.train(max_epochs=250, use_gpu=False)
-mod = cell2location.models.RegressionModel.load(c2lpath+'combinedvis_scregression_model', adata_scrna_raw)
+mod.train(max_epochs=250, use_gpu=False)
+#mod = cell2location.models.RegressionModel.load(c2lpath+'combinedvis_scregression_model', adata_scrna_raw)
 
 
 # In[34]:
@@ -210,7 +211,7 @@ adata_scrna_raw = mod.export_posterior(
 )
 
 # Save model
-#mod.save('combinedvis_scregression_model', overwrite=True)
+mod.save('combinedvis_scregression_model', overwrite=True)
 
 
 # In[36]:
@@ -278,16 +279,18 @@ mod.view_anndata_setup()
 # In[41]:
 
 
-#In case of model training, unmute mod.train and mute the mod loading line
-#mod.train(max_epochs=30000,
+#mod.train is for model traning, the trained model can be loaded with cell2location.models.Cell2location.load
+#Please refer to cell2location_run.sh for slrum job submission
+mod.train(max_epochs=30000,
           # train using full data (batch_size=None)
-#          batch_size=None,
+          batch_size=None,
           # use all data points in training because
           # we need to estimate cell abundance at all locations
-#          train_size=1,
-#          use_gpu=False,
-#         )
-mod = cell2location.models.Cell2location.load(c2lpath+'combined_model', adata_vis)
+          train_size=1,
+          use_gpu=False,
+         )
+
+#mod = cell2location.models.Cell2location.load(c2lpath+'combined_model', adata_vis)
 
 # plot ELBO loss history during training, removing first 100 epochs from the plot
 mod.plot_history(1000)
@@ -301,7 +304,8 @@ plt.legend(labels=['full data training']);
 adata_vis = mod.export_posterior(
     adata_vis, sample_kwargs={'num_samples': 1000, 'batch_size': mod.adata.n_obs, 'use_gpu': False}
 )
-
+# Save model
+mod.save(c2lpath+'combined_model', overwrite=True)
 
 # In[43]:
 
@@ -439,10 +443,4 @@ for names in sample:
 
 
 adata_vis.write(c2lpath+'saved_h5ad/combined_regional_cluster.h5ad')
-
-
-# In[ ]:
-
-
-
 

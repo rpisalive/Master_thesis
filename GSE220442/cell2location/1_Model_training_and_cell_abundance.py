@@ -193,10 +193,11 @@ mod.view_anndata_setup()
 # In[17]:
 
 
-#Umute the mod.train line in case of model training and mute the model loading line
-#It is suggested to submit the script to slurm for model training
-#mod.train(max_epochs=250, use_gpu=False)
-mod = cell2location.models.RegressionModel.load(c2lpath+'combinedvis_scregression_model', adata_scrna_raw)
+#mod.train is for model traning, the trained model can be loaded with cell2location.models.RegressionModel.load
+#Please refer to cell2location_run.sh for slrum job submission
+#The regression modle can be reused for cell2location training as long as they share the same reference data.
+mod.train(max_epochs=250, use_gpu=False)
+#mod = cell2location.models.RegressionModel.load(c2lpath+'combinedvis_scregression_model', adata_scrna_raw)
 
 
 # In[19]:
@@ -214,7 +215,7 @@ adata_scrna_raw = mod.export_posterior(
 )
 
 # Save model
-#mod.save('combinedvis_scregression_model', overwrite=True)
+mod.save('combinedvis_scregression_model', overwrite=True)
 
 
 # In[21]:
@@ -282,8 +283,8 @@ mod.view_anndata_setup()
 
 # In[26]:
 
-
-#In case of model training please unmute the mod.train line for model training and mute the model loading line
+#mod.train is for model traning, the trained model can be loaded with cell2location.models.Cell2location.load
+#Please refer to cell2location_run.sh for slrum job submission
 #mod.train(max_epochs=30000,
           # train using full data (batch_size=None)
 #          batch_size=None,
@@ -306,7 +307,8 @@ plt.legend(labels=['full data training']);
 adata_vis = mod.export_posterior(
     adata_vis, sample_kwargs={'num_samples': 1000, 'batch_size': mod.adata.n_obs, 'use_gpu': False}
 )
-
+# Save model
+mod.save(c2lpath+'combined_model', overwrite=True)
 
 # In[28]:
 
