@@ -126,7 +126,7 @@ ax = sns.scatterplot(data = region, x = 'log_fc_est', y = 'mod_p', hue = 'color'
                      hue_order = cell_type_aval,
                      palette = palette_list,
                      style = 'shape', style_order = shape_aval,markers = ['o', '^'])
-ax.set_title('Differentially expressed genes between '+region_dict[region_to_plot]+' and other regions', size = 20)
+ax.set_title('Differentially expressed genes of '+region_dict[region_to_plot]+' between control group and AD group', size = 20)
 #ax.axhline(2.5, zorder = 0, c = 'k', lw = 2, ls = '--')
 #ax.axvline(0.8, zorder = 0, c = 'k', lw = 2, ls = '--')
 #ax.axvline(-0.8, zorder = 0, c = 'k', lw = 2, ls = '--')
