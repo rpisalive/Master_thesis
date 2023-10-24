@@ -14,7 +14,7 @@ meta_data <- read_csv("rawdata/MTG_pure_annotation.csv.gz")
 cell_types <- setNames(meta_data[[2]], meta_data[[1]])
 cell_types <- as.factor(cell_types) # convert to factor data type
 col_sum <- colSums(counts)
-eta_data[,5] <- col_sum
+meta_data[,5] <- col_sum
 colnames(meta_data) <- c('barcode','celltype','sample_id','donor','nUMI')
 nUMI <- setNames(meta_data[[5]], meta_data[[1]])
 reference <- Reference(counts, cell_types, nUMI)
