@@ -332,7 +332,7 @@ exvar_list_L1[6] <- NULL
 
 #For L1 region
 cell_types <- c('Astro', 'Endo', 'Exc', 'Inh', 'Micro', 'OPC','Oligo')
-myRCTD.reps_L1_CSIDE <- run.CSIDE.replicates(myRCTD.reps_for_L1,cell_types, explanatory.variable.replicates = exvar_list_L1, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_L1_CSIDE <- run.CSIDE.replicates(myRCTD.reps_for_L1,cell_types, explanatory.variable.replicates = exvar_list_L1, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_L1_CSIDE, file = "saved_rds/myRCTD_reps_L1_CSIDE_im_ft.rds")
 #myRCTD.reps_L1_CSIDE <- readRDS('saved_rds/myRCTD_reps_L1_CSIDE_im_ft.rds')
 myRCTD.reps_L1_popin <- CSIDE.population.inference(myRCTD.reps_L1_CSIDE,fdr = 0.1)
@@ -346,7 +346,7 @@ saveRDS(myRCTD.reps_meta_L1, file = "saved_rds/myRCTD_reps_L1_meta_im_ft.rds")
 #myRCTD.reps_meta_L1 <- readRDS('saved_rds/myRCTD_reps_L1_meta_im.rds')
 
 #For L2 region
-myRCTD.reps_L2 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L2, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_L2 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L2, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_L2, file = "saved_rds/myRCTD_reps_L2_im.rds")
 #myRCTD.reps_L2 <- readRDS('saved_rds/myRCTD_reps_L2_im.rds')
 myRCTD.reps_L2_popin <- CSIDE.population.inference(myRCTD.reps_L2,fdr = 0.1)
@@ -359,7 +359,7 @@ saveRDS(myRCTD.reps_meta_L2, file = "saved_rds/myRCTD_reps_L2_meta_im.rds")
 #myRCTD.reps_meta_L2 <- readRDS('saved_rds/myRCTD_reps_L2_meta_im.rds')
 
 #For L3 region
-myRCTD.reps_L3 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L3, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_L3 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L3, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_L3, file = "saved_rds/myRCTD_reps_L3_im.rds")
 #myRCTD.reps_L3 <- readRDS('saved_rds/myRCTD_reps_L3_im.rds')
 myRCTD.reps_L3_popin <- CSIDE.population.inference(myRCTD.reps_L3,fdr = 0.1)
@@ -372,7 +372,7 @@ saveRDS(myRCTD.reps_meta_L3, file = "saved_rds/myRCTD_reps_L3_meta_im.rds")
 #myRCTD.reps_meta_L3 <- readRDS('saved_rds/myRCTD_reps_L3_meta_im.rds')
 
 #For L4 region
-myRCTD.reps_L4 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L4, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_L4 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L4, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_L4, file = "saved_rds/myRCTD_reps_L4_im.rds")
 #myRCTD.reps_L4 <- readRDS('saved_rds/myRCTD_reps_L4_im.rds')
 myRCTD.reps_L4_popin <- CSIDE.population.inference(myRCTD.reps_L4,fdr = 0.1)
@@ -385,7 +385,7 @@ saveRDS(myRCTD.reps_meta_L4, file = "saved_rds/myRCTD_reps_L4_meta_im.rds")
 #myRCTD.reps_meta_L4 <- readRDS('saved_rds/myRCTD_reps_L4_meta_im.rds')
 
 #For L5 region
-myRCTD.reps_L5 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L5, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_L5 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L5, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_L5, file = "saved_rds/myRCTD_reps_L5_im.rds")
 #myRCTD.reps_L5 <- readRDS('saved_rds/myRCTD_reps_L5_im.rds')
 myRCTD.reps_L5_popin <- CSIDE.population.inference(myRCTD.reps_L5,fdr = 0.1)
@@ -398,7 +398,7 @@ saveRDS(myRCTD.reps_meta_L5, file = "saved_rds/myRCTD_reps_L5_meta_im.rds")
 #myRCTD.reps_meta_L5 <- readRDS('saved_rds/myRCTD_reps_L5_meta_im.rds')
 
 #For L6 region
-myRCTD.reps_L6 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L6, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_L6 <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_L6, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_L6, file = "saved_rds/myRCTD_reps_L6_im.rds")
 #myRCTD.reps_L6 <- readRDS('saved_rds/myRCTD_reps_L6_im.rds')
 myRCTD.reps_L6_popin <- CSIDE.population.inference(myRCTD.reps_L6,fdr = 0.1)
@@ -411,7 +411,7 @@ saveRDS(myRCTD.reps_meta_L6, file = "saved_rds/myRCTD_reps_L6_meta_im.rds")
 #myRCTD.reps_meta_L6 <- readRDS('saved_rds/myRCTD_reps_L6_meta_im.rds')
 
 #For WM region
-myRCTD.reps_WM <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_WM, cell_type_threshold = 1,doublet_mode = F, weight_threshold = 0.8)
+myRCTD.reps_WM <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_WM, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_WM, file = "saved_rds/myRCTD_reps_WM_im.rds")
 #myRCTD.reps_WM <- readRDS('saved_rds/myRCTD_reps_WM_im.rds')
 myRCTD.reps_WM_popin <- CSIDE.population.inference(myRCTD.reps_WM,fdr = 0.1)
@@ -419,6 +419,6 @@ saveRDS(myRCTD.reps_WM_popin, file = "saved_rds/myRCTD_reps_WM_popin_im.rds")
 #myRCTD.reps_WM_popin <- readRDS('saved_rds/myRCTD_reps_WM_popin_im.rds')
 
 meta.design.matrix <- data.frame('AD' = c(0,0,0,1,1,1))
-myRCTD.reps_meta_WM <- CSIDE.population.inference(myRCTD.reps_WM,meta = TRUE,meta.design.matrix = meta.design.matrix,meta.test_var = 'AD')
+myRCTD.reps_meta_WM <- CSIDE.population.inference(myRCTD.reps_WM,fdr = 0.1,meta = TRUE,meta.design.matrix = meta.design.matrix,meta.test_var = 'AD')
 saveRDS(myRCTD.reps_meta_WM, file = "saved_rds/myRCTD_reps_WM_meta_im.rds")
 #myRCTD.reps_meta_WM <- readRDS('saved_rds/myRCTD_reps_WM_meta_im.rds')
