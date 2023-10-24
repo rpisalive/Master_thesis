@@ -241,7 +241,7 @@ region_list <- list(L1,L2,L3,L4,L5,L6,WM)
 explanatory.variable6 <- build.designmatrix.regions(myRCTD6, region_list)
 
 #CREATE RCTD_replicates for all regions except L1 (L1 does not exist in AD2)
-#RCTD_list <- list(myRCTD1,myRCTD2,myRCTD3,myRCTD4,myRCTD5,myRCTD6)
+RCTD_list <- list(myRCTD1,myRCTD2,myRCTD3,myRCTD4,myRCTD5,myRCTD6)
 replicate_names <- c('CT1','CT2','CT3','AD1','AD2','AD3')
 myRCTD.reps <- merge_RCTD_objects(RCTD_list,replicate_names)
 saveRDS(myRCTD.reps, file = "saved_rds/myRCTD_reps_im.rds")
