@@ -411,6 +411,7 @@ saveRDS(myRCTD.reps_meta_L6, file = "saved_rds/myRCTD_reps_L6_meta_im.rds")
 #myRCTD.reps_meta_L6 <- readRDS('saved_rds/myRCTD_reps_L6_meta_im.rds')
 
 #For WM region
+cell_types <- c('Astro', 'Endo', 'Exc', 'Inh', 'OPC','Oligo') #Microglia discarded to avoid out of bound
 myRCTD.reps_WM <- run.CSIDE.replicates(myRCTD.reps,cell_types, explanatory.variable.replicates = exvar_list_WM, cell_type_threshold = 1,fdr = 0.1,doublet_mode = F, weight_threshold = 0.8)
 saveRDS(myRCTD.reps_WM, file = "saved_rds/myRCTD_reps_WM_im.rds")
 #myRCTD.reps_WM <- readRDS('saved_rds/myRCTD_reps_WM_im.rds')
